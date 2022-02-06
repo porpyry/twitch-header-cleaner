@@ -51,11 +51,6 @@ function script() {
     show(l3);
     document.onkeyup = null;
   }
-
-  const i1 = getE('chat-input');
-  if (i1) {
-    i1.querySelector('textArea').focus();
-  }
 }
 
 main();
