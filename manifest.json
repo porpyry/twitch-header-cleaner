@@ -4,7 +4,7 @@
   "version": "1.2",
 
   "action": {},
-  "description": "트위치 채팅창의 헤더를 없애줍니다.",
+  "description": "Remove twitch chat header, leaderboard, or any annoying things.",
   "icons": {
     "128": "/images/twitch_icon_128.png"
   },
