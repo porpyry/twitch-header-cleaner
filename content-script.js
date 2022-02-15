@@ -1,4 +1,6 @@
 (() => {
+  let handler = 0;
+
   function getElement(c) {
     return document.querySelector('div.' + c);
   }
@@ -41,7 +43,9 @@
     if (sh) {
       const h1 = getElement('channel-leaderboard');
       const h2 = getElement('community-highlight');
-      const h3 = getElement('community-highlight-stack__backlog-card');
+      const h3 = getElement(
+        'community-highlight-stack__backlog-card'
+      );
       if (
         !isShown(sh) &&
         !isShown(h1) &&
@@ -74,7 +78,9 @@
     if (sh) {
       const h1 = getElement('channel-leaderboard');
       const h2 = getElement('community-highlight');
-      const h3 = getElement('community-highlight-stack__backlog-card');
+      const h3 = getElement(
+        'community-highlight-stack__backlog-card'
+      );
       hide(sh);
       hide(h1);
       hide(h2);
@@ -82,14 +88,41 @@
     }
   }
 
+  // check leaderboard for count n
+  function clearLeaderboard(n) {
+    if (n > 0) {
+      handler = setTimeout(() => {
+        const h1 = getElement('channel-leaderboard');
+        if (h1) {
+          hide(h1);
+          handler = 0;
+        } else {
+          clearLeaderboard(n - 1);
+        }
+      }, 100);
+    } else {
+      handler = 0;
+    }
+  }
+
+  function clearHandler() {
+    if (handler) {
+      clearTimeout(handler);
+      handler = 0;
+    }
+  }
+
   chrome.runtime.onMessage.addListener(
     (message, _sender, _sendResponse) => {
       if (message.event == 'click') {
-        toggleChatHeader();
         console.log('chat header toggle');
+        toggleChatHeader();
+        clearHandler();
       } else if (message.event == 'load') {
-        clearChatHeader();
         console.log('chat header clear');
+        clearChatHeader();
+        clearHandler();
+        clearLeaderboard(150);
       }
     }
   );

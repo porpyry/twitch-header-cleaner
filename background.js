@@ -1,4 +1,5 @@
 chrome.action.onClicked.addListener((tab) => {
+  console.log(tab);
   const message = { event: 'click' };
   chrome.tabs.sendMessage(tab.id, message);
 });
