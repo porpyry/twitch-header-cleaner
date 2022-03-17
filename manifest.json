@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
   "name": "Twitch Chat Header Cleaner",
-  "version": "1.2",
+  "version": "1.3",
 
   "action": {},
-  "description": "Remove twitch chat header, leaderboard, or any annoying things.",
+  "description": "트위치 채팅창의 헤더를 없앱니다.",
   "icons": {
     "128": "/images/twitch_icon_128.png"
   },
