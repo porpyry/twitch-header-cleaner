@@ -1,14 +1,9 @@
 chrome.action.onClicked.addListener((tab) => {
-  console.log(tab);
-  const message = { event: 'click' };
-  chrome.tabs.sendMessage(tab.id, message);
-});
-
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (tab.url?.startsWith('https://www.twitch.tv/')) {
-    if (changeInfo.status == 'complete') {
-      const message = { event: 'load' };
-      chrome.tabs.sendMessage(tabId, message);
+  if (tab.url) {
+    const host = new URL(tab.url).hostname;
+    if (host == 'www.twitch.tv') {
+      const message = { event: 'click' };
+      chrome.tabs.sendMessage(tab.id, message);
     }
   }
 });
