@@ -1,4 +1,5 @@
 (() => {
+  const HIGHLIGHT_BACKLOG = 'community-highlight-stack__backlog-card';
   const STREAM_HEADER = 'stream-chat-header';
   const VIDEO_HEADER = 'video-chat__header';
   const LEADERBOARD = 'channel-leaderboard';
@@ -15,17 +16,21 @@
     const dS = getDiv(STREAM_HEADER);
     if (dS) {
       const dL = getDiv(LEADERBOARD);
+      const dB = getDiv(HIGHLIGHT_BACKLOG);
       const dH = getDiv(HIGHLIGHT);
       if (
         isShown(dS) ||
+        isShown(dB) ||
         isShown(dL) ||
         isShown(dH)
       ) {
         forceShowRemove(dS);
+        forceShowRemove(dB);
         forceShowRemove(dL);
         forceHide(dH);
       } else {
         forceShow(dS);
+        forceShow(dB);
         forceShow(dL);
         forceHideRemove(dH);
       }
