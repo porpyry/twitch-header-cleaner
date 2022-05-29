@@ -27,12 +27,14 @@
         forceShowRemove(dS);
         forceShowRemove(dB);
         forceShowRemove(dL);
-        forceHide(dH);
+        forceShowRemove(dH);
+        //forceHide(dH);
       } else {
         forceShow(dS);
         forceShow(dB);
         forceShow(dL);
-        forceHideRemove(dH);
+        forceShow(dH);
+        //forceHideRemove(dH);
       }
     }
 
