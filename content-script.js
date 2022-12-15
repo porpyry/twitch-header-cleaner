@@ -1,11 +1,13 @@
 (() => {
   const HIGHLIGHT_BACKLOG = 'community-highlight-stack__backlog-card';
+  const CHATROOM_CONTENT = 'chat-room__content';
   const STREAM_HEADER = 'stream-chat-header';
   const VIDEO_HEADER = 'video-chat__header';
-  const LEADERBOARD = 'channel-leaderboard';
+  const LEADERBOARD = 'channel-leaderboard-container';
   const HIGHLIGHT = 'community-highlight';
 
   const getDiv = (className) => document.querySelector('div.' + className);
+  const getDiv2 = (attr, value) => document.querySelector('div[' + attr + '="' + value + '"]');
   const isShown = (el) => el && el.offsetParent !== null;
   const forceShow = (el) => el && el.classList.add('force-show');
   const forceShowRemove = (el) => el && el.classList.remove('force-show');
@@ -15,7 +17,7 @@
   function toggleChatHeader() {
     const dS = getDiv(STREAM_HEADER);
     if (dS) {
-      const dL = getDiv(LEADERBOARD);
+      const dL = getDiv2("data-test-selector", LEADERBOARD);
       const dB = getDiv(HIGHLIGHT_BACKLOG);
       const dH = getDiv(HIGHLIGHT);
       if (
@@ -28,13 +30,11 @@
         forceShowRemove(dB);
         forceShowRemove(dL);
         forceShowRemove(dH);
-        //forceHide(dH);
       } else {
         forceShow(dS);
         forceShow(dB);
         forceShow(dL);
         forceShow(dH);
-        //forceHideRemove(dH);
       }
     }
 

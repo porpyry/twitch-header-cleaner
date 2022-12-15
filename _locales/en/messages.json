@@ -4,7 +4,7 @@
     "description": ""
   },
   "appDesc": {
-    "message": "Removes twitch chat header for more space. (except point betting & hype train)",
+    "message": "Get rid of chat header. (Ctrl + Q to switch)",
     "description": ""
   }
 }

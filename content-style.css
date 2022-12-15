@@ -1,6 +1,6 @@
 div.video-chat__header:not(.force-show),
 div.stream-chat-header:not(.force-show),
-div.channel-leaderboard:not(.force-show),
+div[data-test-selector="channel-leaderboard-container"]:not(.force-show),
 div.community-highlight-stack__backlog-card:not(.force-show),
 div.community-highlight:not(.force-show) {
   display: none !important;

@@ -4,7 +4,7 @@
     "description": ""
   },
   "appDesc": {
-    "message": "트위치 채팅창의 윗부분을 없애 더 넓게 봅니다. (포인트 토토 & 후원 열차 제외)",
+    "message": "채팅창의 윗부분을 없애버립니다. (Ctrl + Q로 스위치)",
     "description": ""
   }
 }
