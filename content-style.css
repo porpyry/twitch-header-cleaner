@@ -3,6 +3,7 @@ div.stream-chat-header:not(.force-show),
 div[data-test-selector="channel-leaderboard-container"]:not(.force-show),
 div.community-highlight-stack__backlog-card:not(.force-show),
 div.community-highlight:not(.force-show),
-div.paid-pinned-chat-message-list:not(.force-show) {
+div.paid-pinned-chat-message-list:not(.force-show),
+div.chat-room__content > div:first-child > div:not(.force-show) {
   display: none !important;
 }

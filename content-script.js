@@ -6,6 +6,7 @@
   const LEADERBOARD = 'channel-leaderboard-container';
   const HIGHLIGHT = 'community-highlight';
   const PINNED_CHAT = 'paid-pinned-chat-message-list';
+  const LEADERBOARD2 = 'chat-room__content > div:first-child > div';
 
   const getDiv = (className) => document.querySelector('div.' + className);
   const getDiv2 = (attr, value) => document.querySelector('div[' + attr + '="' + value + '"]');
@@ -22,24 +23,28 @@
       const dB = getDiv(HIGHLIGHT_BACKLOG);
       const dH = getDiv(HIGHLIGHT);
       const dP = getDiv(PINNED_CHAT);
+      const dL2 = getDiv(LEADERBOARD2);
       if (
         isShown(dS) ||
         isShown(dB) ||
         isShown(dL) ||
         isShown(dH) ||
-        isShown(dP)
+        isShown(dP) ||
+        isShown(dL2)
       ) {
         forceShowRemove(dS);
         forceShowRemove(dB);
         forceShowRemove(dL);
         forceShowRemove(dH);
         forceShowRemove(dP);
+        forceShowRemove(dL2);
       } else {
         forceShow(dS);
         forceShow(dB);
         forceShow(dL);
         forceShow(dH);
         forceShow(dP);
+        forceShow(dL2);
       }
     }
 
